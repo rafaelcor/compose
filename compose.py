@@ -21,6 +21,7 @@ notas = ["c", "d", "e", "f", "g", "a", "b"]
 
 class Compose:
     def movsym(self, widget, event):
+        #print event.keyval
         #self.area.grab_focus()
         #65362 flechita arriba
         #65364 flechita abajo
@@ -40,6 +41,7 @@ class Compose:
         return True
 
     def add_symbol(self, widget):
+        #print "test"
         self.new("negra", self.lista[-1][0] + 20, 78)
         self.draw_notes()
         return True
@@ -54,6 +56,7 @@ class Compose:
         return "%s%d" % (anota, anum)
 
     def play_function(self, *data):
+        #print "clicked"
         to_play = []
         for elemento in self.lista:
             #elemento[1] es y
@@ -77,7 +80,7 @@ class Compose:
     def detect_click(self, widget, event):
         widget.grab_focus()
         for elemento in self.lista:
-            if elemento[3] == "no_volteada" and elemento[2] == "negra":
+            #if elemento[3] == "no_volteada" and elemento[2] == "negra":
                 if event.x - 10 >= elemento[0]:
                     if event.x - 10 <= elemento[0] + 13:
                         if event.y - 100 >= elemento[1]:  # despues ver con las no volteadas
@@ -86,18 +89,19 @@ class Compose:
                                 for elemento2 in self.lista:
                                     elemento2[2] = elemento2[2].replace("_selected", "")
                                 elemento[2] = "negra_selected"
+                                print self.lista.index(elemento)
                                 if elemento != -1:
                                     self.lista[(self.lista.index(elemento) - 1)][2] = "negra"
                                 if elemento < len(self.lista):
                                     self.lista[(self.lista.index(elemento) + 1)][2] = "negra"
                                 self.draw_notes()
 
-            else:  # volteados
-                if event.x - 10 >= elemento[0]:
-                    if event.x - 10 <= elemento[0] + 29:
-                        if event.y - 135 >= elemento[1]:
-                            if event.y - 136 <= elemento[1] + 92:
-                                print 'nota'
+            #else:  # volteados
+             #   if event.x - 10 >= elemento[0]:
+              #      if event.x - 10 <= elemento[0] + 29:
+               #         if event.y - 135 >= elemento[1]:
+                #            if event.y - 136 <= elemento[1] + 92:
+                 #               print 'nota'
         return
     def __init__(self):
         self.menu_items = (
@@ -120,6 +124,7 @@ class Compose:
         window = gtk.Window(gtk.WINDOW_TOPLEVEL)
         window.set_title("Compose 0.0.1.0")
         window.connect("destroy", lambda q: gtk.main_quit())
+        
         window.add_events(gtk.gdk.MOTION_NOTIFY | gtk.gdk.BUTTON_PRESS)
         vbox = gtk.VBox(False, 1)
         self.area = gtk.DrawingArea()
@@ -165,7 +170,7 @@ class Compose:
 
         vbox.pack_start(menubar, False, True, 0)
         vbox.pack_start(toolbar, False, False, 1)
-        vbox.pack_start(self.area, False, True, 2)
+        vbox.pack_start(self.area, True, True, 2)
 
         addsb.connect("clicked", self.add_symbol)
         playb.connect("clicked", self.play_function)
@@ -187,7 +192,8 @@ class Compose:
         self.area.modify_bg(gtk.STATE_NORMAL, gtk.gdk.Color(red=0xFFFF, green=0xFFFF, blue=0xFFFF, pixel=0))
         self.draw(10, 100)
         self.draw_notes()
-        return True
+        #print "Llama"
+        return False
 
     def draw(self, x, y):
         segmentssol = ((x + 10,y + 60 , x + 320,y + 60),
@@ -231,7 +237,6 @@ class Compose:
                 if elemento[2] == "negra_selected":
                     if elemento[1] <= 43:
                         self.area.window.draw_pixbuf(self.gc, negra_selected.rotate_simple(180), 0, 0, 10+elemento[0], 100+elemento[1]+36, -1, -1, gtk.gdk.RGB_DITHER_NONE, 0, 0)
-                        self.area.window.draw_line(self.gc, elemento[0]+5, elemento[1]+142, elemento[0]+27, elemento[1]+142)
                         #self.area.modify_bg(gtk.STATE_NORMAL, gtk.gdk.Color(red=1000, green=0, blue=0, pixel=25))
                 else:
                     if elemento[1] == 6:
