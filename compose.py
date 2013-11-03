@@ -7,7 +7,9 @@ import math
 import gobject
 import pysynth
 import os
+import sys
 import menu_desplegable
+import simbolos
 prefix_path = "data/images/"
 ######
 negra = gtk.gdk.pixbuf_new_from_file_at_size(prefix_path + "negra.png", 50, 48)
@@ -41,8 +43,7 @@ class Compose:
         return True
 
     def add_symbol(self, widget):
-        #print "test"
-        self.new("negra", self.lista[-1][0] + 20, 78)
+        self.new(simbolos.lista_nombres[menu_desplegable.combo.get_active()], self.lista[-1][0] + 20, 78)
         self.draw_notes()
         return True
 
@@ -140,6 +141,7 @@ class Compose:
         self.area.connect("expose-event", self.area_expose_cb)
         self.area.connect("button-press-event", self.detect_click)
         self.area.connect("key-press-event", self.movsym)
+        menu_desplegable.combo.connect("changed", lambda d: sys.stdout.write("%s\n"  % menu_desplegable.combo.get_active()))
 
         self.area.set_flags(gtk.CAN_FOCUS)
 
