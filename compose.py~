@@ -234,9 +234,7 @@ class Compose:
                         self.area.window.draw_pixbuf(self.gc, negra, 0, 0, 10+elemento[0], 100+elemento[1], -1, -1, gtk.gdk.RGB_DITHER_NONE, 0, 0)
             else:
                 if elemento[2] == "negra_selected":
-                    if elemento[1] <= 43:
-                        self.area.window.draw_pixbuf(self.gc, negra_selected.rotate_simple(180), 0, 0, 10+elemento[0], 100+elemento[1]+36, -1, -1, gtk.gdk.RGB_DITHER_NONE, 0, 0)
-                        #self.area.modify_bg(gtk.STATE_NORMAL, gtk.gdk.Color(red=1000, green=0, blue=0, pixel=25))
+                    self.area.window.draw_pixbuf(self.gc, negra_selected.rotate_simple(180), 0, 0, 10 + elemento[0], 100 + elemento[1], -1, -1, gtk.gdk.RGB_DITHER_NONE, 0, 0)
                 else:
                     if elemento[1] == 6:
                         self.area.window.draw_line(self.gc, elemento[0]+5, elemento[1]+142, elemento[0]+27, elemento[1]+142)
