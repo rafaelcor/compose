@@ -57,18 +57,18 @@ lista_simbolos_selected = [gtk.gdk.pixbuf_new_from_file_at_size(prefix_path + "l
 				  gtk.gdk.pixbuf_new_from_file_at_size(prefix_path + "fusa_selected.png", 50, 48),
 				  gtk.gdk.pixbuf_new_from_file_at_size(prefix_path + "semifusa_selected.png", 50, 48),
 				  gtk.gdk.pixbuf_new_from_file_at_size(prefix_path + "garrapatea_selected.png", 50, 48),
-				  gtk.gdk.pixbuf_new_from_file_at_size(prefix_path + "semigarrapatea_selected.png", 50, 48),#
-				  gtk.gdk.pixbuf_new_from_file_at_size(prefix_path + "silencio_longa_selected.png", 50, 48),
-				  gtk.gdk.pixbuf_new_from_file_at_size(prefix_path + "silencio_cuadrada_selected.png", 50, 48),
-				  gtk.gdk.pixbuf_new_from_file_at_size(prefix_path + "silencio_redonda_selected.png", 50, 48),
-				  gtk.gdk.pixbuf_new_from_file_at_size(prefix_path + "silencio_blanca_selected.png", 50, 48),
-				  gtk.gdk.pixbuf_new_from_file_at_size(prefix_path + "silencio_negra_selected.png", 50, 48),
-				  gtk.gdk.pixbuf_new_from_file_at_size(prefix_path + "silencio_corchea_selected.png", 50, 48),
-				  gtk.gdk.pixbuf_new_from_file_at_size(prefix_path + "silencio_semicorchea_selected.png", 50, 48),
-				  gtk.gdk.pixbuf_new_from_file_at_size(prefix_path + "silencio_fusa_selected.png", 50, 48),
-				  gtk.gdk.pixbuf_new_from_file_at_size(prefix_path + "silencio_semifusa_selected.png", 50, 48),
-				  gtk.gdk.pixbuf_new_from_file_at_size(prefix_path + "silencio_garrapatea_selected.png", 50, 48),
-				  gtk.gdk.pixbuf_new_from_file_at_size(prefix_path + "silencio_semigarrapatea_selected.png", 50, 48)]
+				  gtk.gdk.pixbuf_new_from_file_at_size(prefix_path + "semigarrapatea.png", 50, 48),#
+				  gtk.gdk.pixbuf_new_from_file_at_size(prefix_path + "silencio_longa.png", 50, 48),
+				  gtk.gdk.pixbuf_new_from_file_at_size(prefix_path + "silencio_cuadrada.png", 50, 48),
+				  gtk.gdk.pixbuf_new_from_file_at_size(prefix_path + "silencio_redonda.png", 50, 48),
+				  gtk.gdk.pixbuf_new_from_file_at_size(prefix_path + "silencio_blanca.png", 50, 48),
+				  gtk.gdk.pixbuf_new_from_file_at_size(prefix_path + "silencio_negra.png", 50, 48),
+				  gtk.gdk.pixbuf_new_from_file_at_size(prefix_path + "silencio_corchea.png", 50, 48),
+				  gtk.gdk.pixbuf_new_from_file_at_size(prefix_path + "silencio_semicorchea.png", 50, 48),
+				  gtk.gdk.pixbuf_new_from_file_at_size(prefix_path + "silencio_fusa.png", 50, 48),
+				  gtk.gdk.pixbuf_new_from_file_at_size(prefix_path + "silencio_semifusa.png", 50, 48),
+				  gtk.gdk.pixbuf_new_from_file_at_size(prefix_path + "silencio_garrapatea.png", 50, 48),
+				  gtk.gdk.pixbuf_new_from_file_at_size(prefix_path + "silencio_semigarrapatea.png", 50, 48)]
 
 lista_selected = ["longa_selected",
 				  "cuadrada_selected",
