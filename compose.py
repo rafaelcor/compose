@@ -181,6 +181,7 @@ class Compose:
         menubar.show()
         toolbar.show_all()
         vbox.show()
+        self.area.modify_bg(gtk.STATE_NORMAL, gtk.gdk.Color(red=0xFFFF, green=0xFFFF, blue=0xFFFF, pixel=0))
         self.area.show()
         window.show()
         self.area.grab_focus()

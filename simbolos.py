@@ -2,8 +2,8 @@ import gtk
 prefix_path = "data/images/"
 
 lista_simbolos = [gtk.gdk.pixbuf_new_from_file_at_size(prefix_path + "longa.png", 50, 48),
-				  gtk.gdk.pixbuf_new_from_file_at_size(prefix_path + "cuadrada.png", 50, 48),
-				  gtk.gdk.pixbuf_new_from_file_at_size(prefix_path + "redonda.png", 50, 48),
+				  gtk.gdk.pixbuf_new_from_file_at_size(prefix_path + "cuadrada.png", 30, 48),
+				  gtk.gdk.pixbuf_new_from_file_at_size(prefix_path + "redonda.png", 21, 19),
 				  gtk.gdk.pixbuf_new_from_file_at_size(prefix_path + "blanca.png", 50, 48),
 				  gtk.gdk.pixbuf_new_from_file_at_size(prefix_path + "negra.png", 50, 48),
 				  gtk.gdk.pixbuf_new_from_file_at_size(prefix_path + "corchea.png", 50, 48),
@@ -48,8 +48,8 @@ lista_nombres = ["longa",
 				  "silencio_semigarrapatea"]
 
 lista_simbolos_selected = [gtk.gdk.pixbuf_new_from_file_at_size(prefix_path + "longa_selected.png", 50, 48),
-				  gtk.gdk.pixbuf_new_from_file_at_size(prefix_path + "cuadrada_selected.png", 50, 48),
-				  gtk.gdk.pixbuf_new_from_file_at_size(prefix_path + "redonda_selected.png", 50, 48),
+				  gtk.gdk.pixbuf_new_from_file_at_size(prefix_path + "cuadrada_selected.png", 30, 48),
+				  gtk.gdk.pixbuf_new_from_file_at_size(prefix_path + "redonda_selected.png", 21, 19),
 				  gtk.gdk.pixbuf_new_from_file_at_size(prefix_path + "blanca_selected.png", 50, 48),
 				  gtk.gdk.pixbuf_new_from_file_at_size(prefix_path + "negra_selected.png", 50, 48),
 				  gtk.gdk.pixbuf_new_from_file_at_size(prefix_path + "corchea_selected.png", 50, 48),
