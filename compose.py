@@ -38,7 +38,7 @@ class Compose:
                     if elemento[1] > 42:
                         elemento[3] = "no_volteada"
         #self.draw_notes()
-        #self.area.modify_bg(gtk.STATE_NORMAL, gtk.gdk.Color(red=1000, green=0, blue=0, pixel=25))
+        self.area.modify_bg(gtk.STATE_NORMAL, gtk.gdk.Color(red=0xFFFF, green=0xFFFF, blue=0xFFFF, pixel=0))
         self.draw_notes()
         return True
 
@@ -191,10 +191,10 @@ class Compose:
         self.gc = self.style.fg_gc[gtk.STATE_NORMAL]
         self.gc.line_width = 1
         #9 arriba linea adicional
-        self.area.modify_bg(gtk.STATE_NORMAL, gtk.gdk.Color(red=0xFFFF, green=0xFFFF, blue=0xFFFF, pixel=0))
+        #self.area.modify_bg(gtk.STATE_NORMAL, gtk.gdk.Color(red=0xFFFF, green=0xFFFF, blue=0xFFFF, pixel=0))
         self.draw(10, 100)
         self.draw_notes()
-        #print "Llama"
+        print "Llama"
         return False
 
     def draw(self, x, y):
