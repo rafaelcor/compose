@@ -1,1 +1,6 @@
 *.pyc
+*.*~
+<<<<<<< HEAD
+geany_run_script.sh
+=======
+>>>>>>> 0bd26553316969a29bee05fdb1546bde625b4908
