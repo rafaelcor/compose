@@ -218,21 +218,18 @@ class Compose:
                     if elemento[1] <= 43:
                         self.area.window.draw_pixbuf(self.gc, simbolos.lista_simbolos_selected[simbolos.lista_selected.index(elemento[2])].rotate_simple(180), 0, 0, 10+elemento[0], 100+elemento[1]+36, -1, -1, gtk.gdk.RGB_DITHER_NONE, 0, 0)
                         #self.area.modify_bg(gtk.STATE_NORMAL, gtk.gdk.Color(red=1000, green=0, blue=0, pixel=25))
+
+                    elif elemento[1] >= 78 and elemento[1] <= 114 and (elemento[1]/12.0)%1 == 0.5:
+                        self.area.window.draw_line(self.gc, elemento[0]+5, elemento[1]+142, elemento[0]+27, elemento[1]+142)
+                        self.area.window.draw_pixbuf(self.gc, simbolos.lista_simbolos_selected[simbolos.lista_selected.index(elemento[2])], 0, 0, 10+elemento[0], 100+elemento[1], -1, -1, gtk.gdk.RGB_DITHER_NONE, 0, 0)
+                    else:
+                        self.area.window.draw_pixbuf(self.gc, simbolos.lista_simbolos_selected[simbolos.lista_selected.index(elemento[2])], 0, 0, 10+elemento[0], 100+elemento[1], -1, -1, gtk.gdk.RGB_DITHER_NONE, 0, 0)
                 else:
                     if elemento[1] <= 43:
-                        self.area.window.draw_pixbuf(self.gc, simbolos.lista_simbolos[simbolos.lista_nombres.index(elemento[2])].rotate_simple(180), 0, 0, 10+elemento[0], 100+elemento[1]+36, -1, -1, gtk.gdk.RGB_DITHER_NONE, 0, 0)
+                        self.area.window.draw_pixbuf(self.gc, simbolos.lista_simbolos_selected[simbolos.lista_selected.index(elemento[2])].rotate_simple(180), 0, 0, 10+elemento[0], 100+elemento[1]+36, -1, -1, gtk.gdk.RGB_DITHER_NONE, 0, 0)
                         #self.area.modify_bg(gtk.STATE_NORMAL, gtk.gdk.Color(red=1000, green=0, blue=0, pixel=25))
 
-                    elif elemento[1] == 78:
-                        self.area.window.draw_line(self.gc, elemento[0]+5, elemento[1]+142, elemento[0]+27, elemento[1]+142)
-                        self.area.window.draw_pixbuf(self.gc, simbolos.lista_simbolos[simbolos.lista_nombres.index(elemento[2])], 0, 0, 10+elemento[0], 100+elemento[1], -1, -1, gtk.gdk.RGB_DITHER_NONE, 0, 0)
-                    elif elemento[1] == 90:
-                        self.area.window.draw_line(self.gc, elemento[0]+5, elemento[1]+142, elemento[0]+27, elemento[1]+142)
-                        self.area.window.draw_pixbuf(self.gc, simbolos.lista_simbolos[simbolos.lista_nombres.index(elemento[2])], 0, 0, 10+elemento[0], 100+elemento[1], -1, -1, gtk.gdk.RGB_DITHER_NONE, 0, 0)
-                    elif elemento[1] == 102:
-                        self.area.window.draw_line(self.gc, elemento[0]+5, elemento[1]+142, elemento[0]+27, elemento[1]+142)
-                        self.area.window.draw_pixbuf(self.gc, simbolos.lista_simbolos[simbolos.lista_nombres.index(elemento[2])], 0, 0, 10+elemento[0], 100+elemento[1], -1, -1, gtk.gdk.RGB_DITHER_NONE, 0, 0)
-                    elif elemento[1] == 114:
+                    elif elemento[1] >= 78 and elemento[1] <= 114 and (elemento[1]/12.0)%1 == 0.5:
                         self.area.window.draw_line(self.gc, elemento[0]+5, elemento[1]+142, elemento[0]+27, elemento[1]+142)
                         self.area.window.draw_pixbuf(self.gc, simbolos.lista_simbolos[simbolos.lista_nombres.index(elemento[2])], 0, 0, 10+elemento[0], 100+elemento[1], -1, -1, gtk.gdk.RGB_DITHER_NONE, 0, 0)
                     else:
