@@ -210,6 +210,7 @@ class Compose:
         pixbuf = gtk.gdk.pixbuf_new_from_file(prefix_path + "clave_sol.png")  # one way to load a pixbuf
         self.area.window.draw_pixbuf(self.gc, pixbuf, 0, 0, x+10, y+42, -1, -1, gtk.gdk.RGB_DITHER_NONE, 0, 0)
 
+    '''
     def draw_notes(self):
         for elemento in self.lista:
             if elemento[3] == "no_volteada":
@@ -281,12 +282,85 @@ class Compose:
                         self.area.window.draw_pixbuf(self.gc, simbolos.lista_simbolos[simbolos.lista_nombres.index(elemento[2])].rotate_simple(180), 0, 0, 10+elemento[0], 100+elemento[1]+36, -1, -1, gtk.gdk.RGB_DITHER_NONE, 0, 0)
                 
         return True
+        '''
+    def draw_note(self, posx, posy, tipo, voltonovolt):
+        if tipo == "no_volteada":
+            if "_selected" in tipo:
+                self.area.window.draw_pixbuf(self.gc, simbolos.lista_simbolos_selected[simbolos.lista_selected.index(tipo)], 0, 0, 10 + posx, 100 + posy, -1, -1, gtk.gdk.RGB_DITHER_NONE, 0, 0)
+                if posy <= 43:
+                    self.area.window.draw_pixbuf(self.gc, simbolos.lista_simbolos_selected[simbolos.lista_selected.index(tipo)].rotate_simple(180), 0, 0, 10+posx, 100+posy+36, -1, -1, gtk.gdk.RGB_DITHER_NONE, 0, 0)
+                        #self.area.modify_bg(gtk.STATE_NORMAL, gtk.gdk.Color(red=1000, green=0, blue=0, pixel=25))
+
+                elif posy >= 78 and posy <= 114 and (posy/12.0)%1 == 0.5:
+                    self.area.window.draw_line(self.gc, posx+5, posy+142, posx+27, posy+142)
+                    self.area.window.draw_pixbuf(self.gc, simbolos.lista_simbolos_selected[simbolos.lista_selected.index(tipo)], 0, 0, 10+posx, 100+posy, -1, -1, gtk.gdk.RGB_DITHER_NONE, 0, 0)
+                else:
+                    self.area.window.draw_pixbuf(self.gc, simbolos.lista_simbolos_selected[simbolos.lista_selected.index(tipo)], 0, 0, 10+posx, 100+posy, -1, -1, gtk.gdk.RGB_DITHER_NONE, 0, 0)
+            else:
+                if posy <= 43:
+                    self.area.window.draw_pixbuf(self.gc, simbolos.lista_simbolos_selected[simbolos.lista_selected.index(tipo)].rotate_simple(180), 0, 0, 10+posx, 100+posy+36, -1, -1, gtk.gdk.RGB_DITHER_NONE, 0, 0)
+                        #self.area.modify_bg(gtk.STATE_NORMAL, gtk.gdk.Color(red=1000, green=0, blue=0, pixel=25))
+
+                elif posy >= 78 and posy <= 114 and (posy/12.0)%1 == 0.5:
+                    self.area.window.draw_line(self.gc, posx+5, posy+142, posx+27, posy+142)
+                    self.area.window.draw_pixbuf(self.gc, simbolos.lista_simbolos[simbolos.lista_nombres.index(tipo)], 0, 0, 10+posx, 100+posy, -1, -1, gtk.gdk.RGB_DITHER_NONE, 0, 0)
+                else:
+                    self.area.window.draw_pixbuf(self.gc, simbolos.lista_simbolos[simbolos.lista_nombres.index(tipo)], 0, 0, 10+posx, 100+posy, -1, -1, gtk.gdk.RGB_DITHER_NONE, 0, 0)
+        else:
+                if "_selected" in tipo:
+                    if posy == 6:
+                        print "Hello"
+                        self.area.window.draw_line(self.gc, posx+5, posy+142, posx+27, posy+142)
+                        self.area.window.draw_pixbuf(self.gc, simbolos.lista_simbolos_selected[simbolos.lista_selected.index(tipo)].rotate_simple(180), 0, 0, 10+posx, 100+posy+36, -1, -1, gtk.gdk.RGB_DITHER_NONE, 0, 0)
+                    elif posy == -6:
+                        self.area.window.draw_line(self.gc, posx+5, posy+142, posx+27, posy+142)
+                        self.area.window.draw_pixbuf(self.gc, simbolos.lista_simbolos_selected[simbolos.lista_selected.index(tipo)].rotate_simple(180), 0, 0, 10+posx, 100+posy+36, -1, -1, gtk.gdk.RGB_DITHER_NONE, 0, 0)
+                    elif posy == -18:
+                        self.area.window.draw_line(self.gc, posx+5, posy+142, posx+27, posy+142)
+                        self.area.window.draw_pixbuf(self.gc, simbolos.lista_simbolos_selected[simbolos.lista_selected.index(tipo)].rotate_simple(180), 0, 0, 10+posx, 100+posy+36, -1, -1, gtk.gdk.RGB_DITHER_NONE, 0, 0)
+                    elif posy == -30:
+                        self.area.window.draw_line(self.gc, posx+5, posy+142, posx+27, posy+142)
+                        self.area.window.draw_pixbuf(self.gc, simbolos.lista_simbolos_selected[simbolos.lista_selected.index(tipo)].rotate_simple(180), 0, 0, 10+posx, 100+posy+36, -1, -1, gtk.gdk.RGB_DITHER_NONE, 0, 0)
+                    elif posy == 78:
+                        self.area.window.draw_line(self.gc, posx+5, posy+142, posx+27, posy+142)
+                        self.area.window.draw_pixbuf(self.gc, simbolos.lista_simbolos_selected[simbolos.lista_selected.index(tipo)], 0, 0, 10+posx, 100+posy, -1, -1, gtk.gdk.RGB_DITHER_NONE, 0, 0)
+                    elif posy == 90:
+                        self.area.window.draw_line(self.gc, posx+5, posy+142, posx+27, posy+142)
+                        self.area.window.draw_pixbuf(self.gc, simbolos.lista_simbolos_selected[simbolos.lista_selected.index(tipo)], 0, 0, 10+posx, 100+posy, -1, -1, gtk.gdk.RGB_DITHER_NONE, 0, 0)
+                    elif posy == 102:
+                        self.area.window.draw_line(self.gc, posx+5, posy+142, posx+27, posy+142)
+                        self.area.window.draw_pixbuf(self.gc, simbolos.lista_simbolos_selected[simbolos.lista_selected.index(tipo)], 0, 0, 10+posx, 100+posy, -1, -1, gtk.gdk.RGB_DITHER_NONE, 0, 0)
+                    elif posy == 114:
+                        self.area.window.draw_line(self.gc, posx+5, posy+142, posx+27, posy+142)
+                        self.area.window.draw_pixbuf(self.gc, simbolos.lista_simbolos_selected[simbolos.lista_selected.index(tipo)], 0, 0, 10+posx, 100+posy, -1, -1, gtk.gdk.RGB_DITHER_NONE, 0, 0)
+                    elif posy <= 43:
+                        self.area.window.draw_pixbuf(self.gc, simbolos.lista_simbolos_selected[simbolos.lista_selected.index(tipo)].rotate_simple(180), 0, 0, 10+posx, 100+posy+36, -1, -1, gtk.gdk.RGB_DITHER_NONE, 0, 0)                    
+                else:
+                    if posy == 6:
+                        self.area.window.draw_line(self.gc, posx+5, posy+142, posx+27, posy+142)
+                        self.area.window.draw_pixbuf(self.gc, simbolos.lista_simbolos[simbolos.lista_nombres.index(tipo)].rotate_simple(180), 0, 0, 10+posx, 100+posy+36, -1, -1, gtk.gdk.RGB_DITHER_NONE, 0, 0)
+                        
+                    elif posy == -6:
+                        self.area.window.draw_line(self.gc, posx+5, posy+142, posx+27, posy+142)
+                        self.area.window.draw_pixbuf(self.gc, simbolos.lista_simbolos[simbolos.lista_nombres.index(tipo)].rotate_simple(180), 0, 0, 10+posx, 100+posy+36, -1, -1, gtk.gdk.RGB_DITHER_NONE, 0, 0)
+                    elif posy == -18:
+                        self.area.window.draw_line(self.gc, posx+5, posy+142, posx+27, posy+142)
+                        self.area.window.draw_pixbuf(self.gc, simbolos.lista_simbolos[simbolos.lista_nombres.index(tipo)].rotate_simple(180), 0, 0, 10+posx, 100+posy+36, -1, -1, gtk.gdk.RGB_DITHER_NONE, 0, 0)
+                    elif posy == 15:
+                        self.area.window.draw_line(self.gc, posx+5, posy+144, posx+27, posy+144)
+                        self.area.window.draw_pixbuf(self.gc, simbolos.lista_simbolos[simbolos.lista_nombres.index(tipo)].rotate_simple(180), 0, 0, 10+posx, 100+posy+36, -1, -1, gtk.gdk.RGB_DITHER_NONE, 0, 0)
+                    else:
+                        self.area.window.draw_pixbuf(self.gc, simbolos.lista_simbolos[simbolos.lista_nombres.index(tipo)].rotate_simple(180), 0, 0, 10+posx, 100+posy+36, -1, -1, gtk.gdk.RGB_DITHER_NONE, 0, 0)
+                
+        return True
 
     def new(self, what_type, posx, posy):
         if posy <= 43:
             self.lista.append([posx, posy, what_type, "volteada"])
+            self.draw_note(posx, posy, what_type, "volteada")
         else:
             self.lista.append([posx, posy, what_type, "no_volteada"])
+            self.draw_note(posx, posy, what_type, "no_volteada")
         return
 
 
