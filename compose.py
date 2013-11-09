@@ -38,7 +38,6 @@ class Compose:
                     elemento[1] += 6
                     if elemento[1] > 42:
                         elemento[3] = "no_volteada"
-                    print elemento[1]
         #self.draw_notes()
         self.area.modify_bg(gtk.STATE_NORMAL, gtk.gdk.Color(red=0xFFFF, green=0xFFFF, blue=0xFFFF, pixel=0))
         self.draw_notes()
@@ -197,7 +196,7 @@ class Compose:
         #self.area.modify_bg(gtk.STATE_NORMAL, gtk.gdk.Color(red=0xFFFF, green=0xFFFF, blue=0xFFFF, pixel=0))
         self.draw(10, 100)
         self.draw_notes()
-        #print "Llama"
+        print "Llama"
         return False
 
     def draw(self, x, y):
@@ -238,32 +237,31 @@ class Compose:
             else:
                 if "_selected" in elemento[2]:
                     if elemento[1] == 6:
-                        #print "Hello"
+                        print "Hello"
                         self.area.window.draw_line(self.gc, elemento[0]+5, elemento[1]+142, elemento[0]+27, elemento[1]+142)
                         self.area.window.draw_pixbuf(self.gc, simbolos.lista_simbolos_selected[simbolos.lista_selected.index(elemento[2])].rotate_simple(180), 0, 0, 10+elemento[0], 100+elemento[1]+36, -1, -1, gtk.gdk.RGB_DITHER_NONE, 0, 0)
-                    if elemento[1] == -6:
+                    elif elemento[1] == -6:
                         self.area.window.draw_line(self.gc, elemento[0]+5, elemento[1]+142, elemento[0]+27, elemento[1]+142)
                         self.area.window.draw_pixbuf(self.gc, simbolos.lista_simbolos_selected[simbolos.lista_selected.index(elemento[2])].rotate_simple(180), 0, 0, 10+elemento[0], 100+elemento[1]+36, -1, -1, gtk.gdk.RGB_DITHER_NONE, 0, 0)
-                    if elemento[1] == -18:
+                    elif elemento[1] == -18:
                         self.area.window.draw_line(self.gc, elemento[0]+5, elemento[1]+142, elemento[0]+27, elemento[1]+142)
                         self.area.window.draw_pixbuf(self.gc, simbolos.lista_simbolos_selected[simbolos.lista_selected.index(elemento[2])].rotate_simple(180), 0, 0, 10+elemento[0], 100+elemento[1]+36, -1, -1, gtk.gdk.RGB_DITHER_NONE, 0, 0)
-                    if elemento[1] == -30:
+                    elif elemento[1] == -30:
                         self.area.window.draw_line(self.gc, elemento[0]+5, elemento[1]+142, elemento[0]+27, elemento[1]+142)
                         self.area.window.draw_pixbuf(self.gc, simbolos.lista_simbolos_selected[simbolos.lista_selected.index(elemento[2])].rotate_simple(180), 0, 0, 10+elemento[0], 100+elemento[1]+36, -1, -1, gtk.gdk.RGB_DITHER_NONE, 0, 0)
-                    if elemento[1] == 78:
-                        print "el 78"
+                    elif elemento[1] == 78:
                         self.area.window.draw_line(self.gc, elemento[0]+5, elemento[1]+142, elemento[0]+27, elemento[1]+142)
                         self.area.window.draw_pixbuf(self.gc, simbolos.lista_simbolos_selected[simbolos.lista_selected.index(elemento[2])], 0, 0, 10+elemento[0], 100+elemento[1], -1, -1, gtk.gdk.RGB_DITHER_NONE, 0, 0)
-                    if elemento[1] == 90:
+                    elif elemento[1] == 90:
                         self.area.window.draw_line(self.gc, elemento[0]+5, elemento[1]+142, elemento[0]+27, elemento[1]+142)
                         self.area.window.draw_pixbuf(self.gc, simbolos.lista_simbolos_selected[simbolos.lista_selected.index(elemento[2])], 0, 0, 10+elemento[0], 100+elemento[1], -1, -1, gtk.gdk.RGB_DITHER_NONE, 0, 0)
-                    if elemento[1] == 102:
+                    elif elemento[1] == 102:
                         self.area.window.draw_line(self.gc, elemento[0]+5, elemento[1]+142, elemento[0]+27, elemento[1]+142)
                         self.area.window.draw_pixbuf(self.gc, simbolos.lista_simbolos_selected[simbolos.lista_selected.index(elemento[2])], 0, 0, 10+elemento[0], 100+elemento[1], -1, -1, gtk.gdk.RGB_DITHER_NONE, 0, 0)
-                    if elemento[1] == 114:
+                    elif elemento[1] == 114:
                         self.area.window.draw_line(self.gc, elemento[0]+5, elemento[1]+142, elemento[0]+27, elemento[1]+142)
                         self.area.window.draw_pixbuf(self.gc, simbolos.lista_simbolos_selected[simbolos.lista_selected.index(elemento[2])], 0, 0, 10+elemento[0], 100+elemento[1], -1, -1, gtk.gdk.RGB_DITHER_NONE, 0, 0)
-                    if elemento[1] <= 43:
+                    elif elemento[1] <= 43:
                         self.area.window.draw_pixbuf(self.gc, simbolos.lista_simbolos_selected[simbolos.lista_selected.index(elemento[2])].rotate_simple(180), 0, 0, 10+elemento[0], 100+elemento[1]+36, -1, -1, gtk.gdk.RGB_DITHER_NONE, 0, 0)                    
                 else:
                     if elemento[1] == 6:
@@ -285,61 +283,10 @@ class Compose:
         return True
 
     def new(self, what_type, posx, posy):
-        if what_type == "negra":
-            if posy <= 43:
-                self.lista.append([posx, posy, "negra", "volteada"])
-            else:
-                self.lista.append([posx, posy, "negra", "no_volteada"])
-        if what_type == "blanca":
-            if posy <= 43:
-                self.lista.append([posx, posy, "blanca", "volteada"])
-            else:
-                self.lista.append([posx, posy, "blanca", "no_volteada"])
-        if what_type == "redonda":
-            if posy <= 43:
-                self.lista.append([posx, posy, "redonda", "volteada"])
-            else:
-                self.lista.append([posx, posy, "redonda", "no_volteada"])
-        if what_type == "longa":
-            if posy <= 43:
-                self.lista.append([posx, posy, "longa", "volteada"])
-            else:
-                self.lista.append([posx, posy, "longa", "no_volteada"])
-        if what_type == "cuadrada":
-            if posy <= 43:
-                self.lista.append([posx, posy, "cuadrada", "volteada"])
-            else:
-                self.lista.append([posx, posy, "cuadrada", "no_volteada"])
-        if what_type == "corchea":
-            if posy <= 43:
-                self.lista.append([posx, posy, "corchea", "volteada"])
-            else:
-                self.lista.append([posx, posy, "corchea", "no_volteada"])
-        if what_type == "semi_corchea":
-            if posy <= 43:
-                self.lista.append([posx, posy, "semi_corchea", "volteada"])
-            else:
-                self.lista.append([posx, posy, "semi_corchea", "no_volteada"])
-        if what_type == "fusa":
-            if posy <= 43:
-                self.lista.append([posx, posy, "fusa", "volteada"])
-            else:
-                self.lista.append([posx, posy, "fusa", "no_volteada"])
-        if what_type == "semi_fusa":
-            if posy <= 43:
-                self.lista.append([posx, posy, "semi_fusa", "volteada"])
-            else:
-                self.lista.append([posx, posy, "semi_fusa", "no_volteada"])
-        if what_type == "garrapatea":
-            if posy <= 43:
-                self.lista.append([posx, posy, "garrapatea", "volteada"])
-            else:
-                self.lista.append([posx, posy, "garrapatea", "no_volteada"])
-        if what_type == "semi_garrapatea":
-            if posy <= 43:
-                self.lista.append([posx, posy, "semi_garrapatea", "volteada"])
-            else:
-                self.lista.append([posx, posy, "semi_garrapatea", "no_volteada"])
+        if posy <= 43:
+            self.lista.append([posx, posy, what_type, "volteada"])
+        else:
+            self.lista.append([posx, posy, what_type, "no_volteada"])
         return
 
 
