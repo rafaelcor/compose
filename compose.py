@@ -45,7 +45,8 @@ class Compose:
 
     def add_symbol(self, widget):
         self.new(simbolos.lista_nombres[menu_desplegable.combo.get_active()], self.lista[-1][0] + 20, 78)
-        self.draw_notes()
+        print self.lista[-1]
+        self.draw_note(self.lista[-1][0], self.lista[-1][1], self.lista[-1][2], self.lista[-1][3])
         return True
 
     def addnota(self, nota, num):
@@ -210,7 +211,6 @@ class Compose:
         pixbuf = gtk.gdk.pixbuf_new_from_file(prefix_path + "clave_sol.png")  # one way to load a pixbuf
         self.area.window.draw_pixbuf(self.gc, pixbuf, 0, 0, x+10, y+42, -1, -1, gtk.gdk.RGB_DITHER_NONE, 0, 0)
 
-    '''
     def draw_notes(self):
         for elemento in self.lista:
             if elemento[3] == "no_volteada":
@@ -282,9 +282,9 @@ class Compose:
                         self.area.window.draw_pixbuf(self.gc, simbolos.lista_simbolos[simbolos.lista_nombres.index(elemento[2])].rotate_simple(180), 0, 0, 10+elemento[0], 100+elemento[1]+36, -1, -1, gtk.gdk.RGB_DITHER_NONE, 0, 0)
                 
         return True
-        '''
+
     def draw_note(self, posx, posy, tipo, voltonovolt):
-        if tipo == "no_volteada":
+        if voltonovolt == "no_volteada":
             if "_selected" in tipo:
                 self.area.window.draw_pixbuf(self.gc, simbolos.lista_simbolos_selected[simbolos.lista_selected.index(tipo)], 0, 0, 10 + posx, 100 + posy, -1, -1, gtk.gdk.RGB_DITHER_NONE, 0, 0)
                 if posy <= 43:
@@ -357,10 +357,10 @@ class Compose:
     def new(self, what_type, posx, posy):
         if posy <= 43:
             self.lista.append([posx, posy, what_type, "volteada"])
-            self.draw_note(posx, posy, what_type, "volteada")
+            #self.draw_note(posx, posy, what_type, "volteada")
         else:
             self.lista.append([posx, posy, what_type, "no_volteada"])
-            self.draw_note(posx, posy, what_type, "no_volteada")
+            #self.draw_note(posx, posy, what_type, "no_volteada")
         return
 
 
