@@ -83,21 +83,41 @@ class Compose:
     def detect_click(self, widget, event):
         widget.grab_focus()
         for elemento in self.lista:
-            #if elemento[3] == "no_volteada" and elemento[2] == "negra":
-                if event.x - 10 >= elemento[0]:
-                    if event.x - 10 <= elemento[0] + 13:
-                        if event.y - 100 >= elemento[1]:  # despues ver con las no volteadas
-                            if event.y - 28 <= elemento[1] + 120:  # despues ver con las no volteadas
+            if elemento[2] != "redonda":
+                if elemento[2] != "cuadrada":
+                    if event.x - 10 >= elemento[0]:
+                        if event.x - 10 <= elemento[0] + 13:
+                            if event.y - 100 >= elemento[1]:  # despues ver con las no volteadas
+                                if event.y - 28 <= elemento[1] + 120:  # despues ver con las no volteadas
                                 #print elemento
-                                for elemento2 in self.lista:
-                                    elemento2[2] = elemento2[2].replace("_selected", "")
+                                    for elemento2 in self.lista:
+                                        elemento2[2] = elemento2[2].replace("_selected", "")
+                                    elemento[2] = elemento[2]+"_selected"
+                                    print self.lista.index(elemento)
+                                    self.draw_notes()
+            else:
+				if event.x - 10 >= elemento[0]:
+					if event.x - 10 <= elemento[0] + 13:
+						if event.y - 100>= elemento[1]:  # despues ver con las no volteadas
+							if event.y - 28 <= elemento[1] + 80:
+								for elemento2 in self.lista:
+									elemento2[2] = elemento2[2].replace("_selected", "")
                                 elemento[2] = elemento[2]+"_selected"
                                 print self.lista.index(elemento)
-                                #if elemento != -1:
-                                #    self.lista[(self.lista.index(elemento) - 1)][2] = "negra"
-                                #if elemento < len(self.lista):
-                                #    self.lista[(self.lista.index(elemento) + 1)][2] = "negra"
                                 self.draw_notes()
+                else:
+                    if event.x - 10 >= elemento[0]:
+                        if event.x - 10 <= elemento[0] + 13:
+                            if event.y - 100>= elemento[1]:  # despues ver con las no volteadas
+                                if event.y - 28 <= elemento[1] + 80:  # despues ver con las no volteadas
+                                        #print elemento
+                                    for elemento2 in self.lista:
+                                        elemento2[2] = elemento2[2].replace("_selected", "")
+                                    elemento[2] = elemento[2]+"_selected"
+                                    print self.lista.index(elemento)
+                                    self.draw_notes()
+                                
+          
 
             #else:  # volteados
              #   if event.x - 10 >= elemento[0]:
