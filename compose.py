@@ -95,16 +95,6 @@ class Compose:
                                     elemento[2] = elemento[2]+"_selected"
                                     print self.lista.index(elemento)
                                     self.draw_notes()
-            else:
-				if event.x - 10 >= elemento[0]:
-					if event.x - 10 <= elemento[0] + 13:
-						if event.y - 100>= elemento[1]:  # despues ver con las no volteadas
-							if event.y - 28 <= elemento[1] + 80:
-								for elemento2 in self.lista:
-									elemento2[2] = elemento2[2].replace("_selected", "")
-                                elemento[2] = elemento[2]+"_selected"
-                                print self.lista.index(elemento)
-                                self.draw_notes()
                 else:
                     if event.x - 10 >= elemento[0]:
                         if event.x - 10 <= elemento[0] + 13:
@@ -116,6 +106,16 @@ class Compose:
                                     elemento[2] = elemento[2]+"_selected"
                                     print self.lista.index(elemento)
                                     self.draw_notes()
+            else:
+				if event.x - 10 >= elemento[0]:
+					if event.x - 10 <= elemento[0] + 13:
+						if event.y - 100>= elemento[1]:  # despues ver con las no volteadas
+							if event.y - 28 <= elemento[1] + 80:
+								for elemento2 in self.lista:
+									elemento2[2] = elemento2[2].replace("_selected", "")
+                                elemento[2] = elemento[2]+"_selected"
+                                print self.lista.index(elemento)
+                                self.draw_notes()
                                 
           
 
