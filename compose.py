@@ -113,7 +113,7 @@ class Compose:
 							if event.y - 28 <= elemento[1] + 80:
 								for elemento2 in self.lista:
 									elemento2[2] = elemento2[2].replace("_selected", "")
-                                elemento[2] = elemento[2]+"_selected"
+								elemento[2] = elemento[2]+"_selected"
                                 print self.lista.index(elemento)
                                 self.draw_notes()
                                 
