@@ -44,8 +44,8 @@ class Compose:
         return True
 
     def add_symbol(self, widget):
-        self.new(simbolos.lista_nombres[menu_desplegable.combo.get_active()], self.lista[-1][0] + 20, 78)
-        print self.lista[-1]
+        print simbolos.lista_simbolos[simbolos.lista_nombres.index(self.lista[-1][2])].get_width()
+        self.new(simbolos.lista_nombres[menu_desplegable.combo.get_active()], simbolos.lista_simbolos[simbolos.lista_nombres.index(self.lista[-1][2])].get_width() + self.lista[-1][0] + 7, 78)
         self.draw_note(self.lista[-1][0], self.lista[-1][1], self.lista[-1][2], self.lista[-1][3])
         return True
 
