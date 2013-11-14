@@ -1,4 +1,4 @@
 compose
 =======
 
-A program to compose music easyly.
+A program to compose music easily.
